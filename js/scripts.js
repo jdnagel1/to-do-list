@@ -13,3 +13,19 @@ function Tasks(task,date,time){
   this.date = date,
   this.time = time
 }
+
+
+
+// Front End
+
+$(function(){
+  $("form").submit(function(event) {
+    var task = $("#inputTask").val();
+    var date = $("#inputDate").val();
+    var time = $("inputTime").val();
+
+
+
+    event.preventDefault();
+  });
+});
