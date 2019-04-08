@@ -5,10 +5,13 @@ function ToDo() {
   this.currentId = 0
 }
 
+ToDo.prototype.addTask = function(tasks) {
+  this.tasks.push(task);
+}
 
 // Constructor:
 
-function Tasks(task,date,time){
+function Task(task,date,time){
   this.task = task,
   this.date = date,
   this.time = time
@@ -16,16 +19,32 @@ function Tasks(task,date,time){
 
 
 
+function printTasks(tasks) {
+  var listItems = $('#outputTask');
+  var taskString = "";
+  console.log(test);
+  Task.forEach(function(tasks){
+  // for(var i = 0; i < 3; i++){
+      taskString += "<input type='checkbox' name='toDo'>" + tasks.task + " Date Due" + tasks.date + " Time Due" + tasks.time + "<br>";
+    // };
+  });
+  listItems.append(taskString);
+}
+
+
 // Front End
 
 $(function(){
-  $("form").submit(function(event) {
+  $("#formOne").submit(function(event) {
     var task = $("#inputTask").val();
     var date = $("#inputDate").val();
-    var time = $("inputTime").val();
+    var time = $("#inputTime").val();
 
+    var taskItem = new Task(task, date, time);
 
+    printTasks(task);
 
+    console.log(taskItem);
     event.preventDefault();
   });
 });
